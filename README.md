@@ -10,6 +10,8 @@ which provides the CRUD queries for me to reduce boilerplate code.
 I am leveraging the ThreadPoolTaskExecutor with custom properties defined in the application.yml.
 It is being used together with Spring's @Async annotation to enable asynchronous creations of Transactions.
 
+For better experience Swagger UI and ControllerAdvice are provided.
+
 ## Running locally
 In order to run locally do the following:
 1. Run 'gradlew clean build' from within the root folder if using Windows or './gradlew clean build' if using Linux
