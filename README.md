@@ -12,7 +12,7 @@ It is being used together with Spring's @Async annotation to enable asynchronous
 
 ## Running locally
 In order to run locally do the following:
-1. Run 'gradle clean build' from within the root folder if using Windows or './gradle clean build' if using Linux
+1. Run 'gradlew clean build' from within the root folder if using Windows or './gradlew clean build' if using Linux
 2. Run 'java -jar build/libs/demo-0.0.1-SNAPSHOT.jar' from the root folder or import the project in an IDE and run it from there
 3. Go to http://localhost:8080/swagger-ui.html# and run any endpoint
 
