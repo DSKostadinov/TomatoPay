@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driverClassName: org.h2.Driver
+    username: tomato
+    password: tomato
+    database-platform: org.hibernate.dialect.H2Dialect
+  executor:
+    corePoolSize: 200
+    maxPoolSize: 500
+    queueCapacity: 500
