@@ -70,8 +70,9 @@ public class TransactionController {
     public Transaction updateTransaction(@PathVariable UUID transactionId, @RequestParam String newDesc) {
         Transaction transaction = transactionService.findById(transactionId);
         transaction.setDescription(newDesc);
-
-        return transactionService.save(transaction);
+        transactionService.save(transaction);
+        
+        return transaction;
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
