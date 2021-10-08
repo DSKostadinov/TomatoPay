@@ -4,7 +4,6 @@ import com.example.demo.domain.Transaction;
 import com.example.demo.domain.request.CreateTransactionRequest;
 import com.example.demo.service.TransactionService;
 import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import org.apache.logging.log4j.LogManager;
