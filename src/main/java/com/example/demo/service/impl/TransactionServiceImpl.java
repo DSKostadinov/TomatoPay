@@ -53,7 +53,7 @@ public class TransactionServiceImpl implements TransactionService {
 
         //for the purpose of showing async operations
         try {
-            Thread.sleep(1000);
+            Thread.sleep(3000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
