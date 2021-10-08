@@ -3,7 +3,10 @@ package com.example.demo.controller;
 import com.example.demo.domain.Transaction;
 import com.example.demo.domain.request.CreateTransactionRequest;
 import com.example.demo.service.TransactionService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.data.domain.Page;
@@ -17,6 +20,7 @@ import java.util.concurrent.CompletableFuture;
 
 @RestController
 @RequestMapping("/transactions")
+@Api(tags = "Transaction APIs")
 public class TransactionController {
 
     private static final Logger LOGGER = LogManager.getLogger();
@@ -27,20 +31,29 @@ public class TransactionController {
         this.transactionService = transactionService;
     }
 
-    @ApiResponse(code = 200, message = "Retrieved transaction")
+    @ApiResponses(
+            value = {@ApiResponse(code = 200, message = "Retrieved transaction")
+            }
+    )
     @GetMapping("/{transactionId}")
     public Transaction getTransaction(@PathVariable UUID transactionId) {
         return transactionService.findById(transactionId);
     }
 
-    @ApiResponse(code = 200, message = "Retrieved all transaction")
+    @ApiResponses(
+            value = {@ApiResponse(code = 200, message = "Retrieved all transactions")
+            }
+    )
     @GetMapping
-    public Page<Transaction> getTransactions(Pageable pageable) {
+    public Page<Transaction> getAllTransactions(Pageable pageable) {
         return transactionService.findAll(pageable);
     }
 
     @ResponseStatus(HttpStatus.CREATED)
-    @ApiResponse(code = 201, message = "Created transaction")
+    @ApiResponses(
+            value = {@ApiResponse(code = 201, message = "Transaction created")
+            }
+    )
     @PostMapping
     public CompletableFuture<Transaction> createTransaction(@Valid @RequestBody CreateTransactionRequest createTransactionRequest) {
         LOGGER.info("Async request to create transaction received");
@@ -50,7 +63,10 @@ public class TransactionController {
         return CompletableFuture.completedFuture(transaction);
     }
 
-    @ApiResponse(code = 200, message = "Transaction updated")
+    @ApiResponses(
+            value = {@ApiResponse(code = 200, message = "Transaction updated")
+            }
+    )
     @PutMapping("/{transactionId}")
     public Transaction updateTransaction(@PathVariable UUID transactionId, @RequestParam String newDesc) {
         Transaction transaction = transactionService.findById(transactionId);
@@ -60,7 +76,10 @@ public class TransactionController {
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    @ApiResponse(code = 204, message = "Transaction deleted")
+    @ApiResponses(
+            value = {@ApiResponse(code = 204, message = "Transaction deleted")
+            }
+    )
     @DeleteMapping("/{transactionId}")
     public void deleteTransaction(@PathVariable UUID transactionId) {
         transactionService.deleteById(transactionId);
