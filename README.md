@@ -19,7 +19,6 @@ In order to run locally do the following:
 Example JSON body for creating a Transaction (note accountId should be UUID formatted String and amount should be a positive number):
 ```json
 {
-"id": "cd9d2265-b9ba-4d5e-a5dc-8f1cbe4476c1",
 "accountId": "d783f984-7efe-4639-a846-ac70ca340a89",
 "currency": "string",
 "amount": 0.5,
