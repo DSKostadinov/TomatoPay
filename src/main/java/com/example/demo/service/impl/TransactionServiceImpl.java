@@ -11,14 +11,12 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.util.UUID;
 import java.util.concurrent.locks.ReentrantLock;
 
-@Service("transactionService")
-@Transactional
+@Service
 public class TransactionServiceImpl implements TransactionService {
 
     private static final Logger LOGGER = LogManager.getLogger();

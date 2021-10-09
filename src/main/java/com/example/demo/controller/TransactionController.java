@@ -71,7 +71,7 @@ public class TransactionController {
         Transaction transaction = transactionService.findById(transactionId);
         transaction.setDescription(newDesc);
         transactionService.save(transaction);
-        
+
         return transaction;
     }
 
@@ -95,12 +95,5 @@ public class TransactionController {
         transaction.setType(createTransactionRequest.getType());
 
         return transaction;
-    }
-
-    public CompletableFuture<Transaction> save(Transaction transaction) {
-        LOGGER.info("Async request to create transaction received");
-        transactionService.save(transaction);
-
-        return CompletableFuture.completedFuture(transaction);
     }
 }
